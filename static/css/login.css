@@ -1,0 +1,244 @@
+/* login.css */
+
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9ff;
+    color: #2c3e50;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #5e4ee5;
+    text-decoration: none;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #2c3e50;
+    border-radius: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li a {
+    font-size: 1rem;
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.nav-links li a:hover {
+    color: #5e4ee5;
+}
+
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    padding: 1rem;
+    gap: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+/* Login Hero Section */
+.login-hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(to bottom right, #5e4ee5, #a29bfe);
+    color: white;
+}
+
+.login-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.login-hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Login Form Section */
+.login-section {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.login-container {
+    max-width: 500px;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #5e4ee5;
+}
+
+.flash-messages {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+}
+
+.flash-messages li {
+    background-color: #ffcccc;
+    color: #cc0000;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+/* Form Styles */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.login-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.login-form label {
+    font-size: 1rem;
+    color: #2c3e50;
+}
+
+.login-form input {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.login-form input:focus {
+    border-color: #5e4ee5;
+    outline: none;
+}
+
+.login-form .btn-primary {
+    padding: 1rem;
+    background-color: #5e4ee5;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-form .btn-primary:hover {
+    background-color: #483db8;
+}
+
+.forgot-password,
+.signup-footer-text {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.forgot-password a,
+.signup-footer-text a {
+    color: #5e4ee5;
+    text-decoration: none;
+}
+
+.forgot-password a:hover,
+.signup-footer-text a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    background-color: #2c3e50;
+    color: white;
+    padding: 2rem 1rem;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.footer-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-links li a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .login-hero h1 {
+        font-size: 2rem;
+    }
+
+    .login-hero p {
+        font-size: 1rem;
+    }
+}

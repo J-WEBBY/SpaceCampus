@@ -1,0 +1,234 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9ff;
+    color: #2c3e50;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #5e4ee5;
+    text-decoration: none;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #2c3e50;
+    border-radius: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    padding: 1rem;
+    gap: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(to right, #5e4ee5, #8e7cc3);
+    color: white;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    padding: 0.8rem 1.5rem;
+    background-color: white;
+    color: #5e4ee5;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #f1f5ff;
+}
+
+/* Survey Container */
+.survey-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+    text-align: center;
+}
+
+.survey-container h2 {
+    font-size: 2rem;
+    color: #5e4ee5;
+    margin-bottom: 1rem;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    color: #636e72;
+    margin-bottom: 2rem;
+}
+
+/* Survey Categories */
+.survey-category {
+    margin-bottom: 3rem;
+}
+
+.survey-category h3 {
+    font-size: 1.5rem;
+    color: #5e4ee5;
+    margin-bottom: 1rem;
+}
+
+.survey-cards {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.survey-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.survey-card h4 {
+    font-size: 1.2rem;
+    color: #5e4ee5;
+    margin-bottom: 0.5rem;
+}
+
+.survey-card p {
+    font-size: 0.95rem;
+    color: #636e72;
+    margin-bottom: 0.5rem;
+}
+
+.duration {
+    font-size: 0.85rem;
+    color: #636e72;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.survey-btn {
+    text-decoration: none;
+    color: white;
+    background-color: #5e4ee5;
+    padding: 0.8rem 1.2rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.survey-btn:hover {
+    background-color: #483db8;
+}
+
+/* Call-to-Action */
+.cta {
+    background-color: #f1f5ff;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #5e4ee5;
+    margin-top: 3rem;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 1rem;
+    background: #5e4ee5;
+    color: white;
+    margin-top: 3rem;
+    width: 100%;
+    position: relative;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .survey-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .survey-card h4 {
+        font-size: 1.1rem;
+    }
+
+    .cta {
+        font-size: 1rem;
+    }
+}

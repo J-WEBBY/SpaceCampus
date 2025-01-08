@@ -1,0 +1,239 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9ff;
+    color: #2c3e50;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    overflow: hidden; /* Ensure no horizontal scroll from navbar */
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar .nav-links li a {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar .nav-links li a.active {
+    color: #5e4ee5;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #2c3e50;
+    border-radius: 2px;
+}
+
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: white;
+    padding: 1rem;
+    gap: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+/* Forum Topic Container */
+.forum-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Topic Details */
+.topic-title {
+    font-size: 2rem;
+    color: #5e4ee5;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.topic-meta {
+    font-size: 0.9rem;
+    color: #636e72;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.topic-content {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.topic-image,
+.topic-video {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.action-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.btn-favorite {
+    padding: 0.8rem 1.5rem;
+    background-color: #8e7cc3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-favorite:hover {
+    background-color: #5e4ee5;
+}
+
+/* Comments Section */
+.comments-section {
+    margin-top: 2rem;
+}
+
+.comments-section h2 {
+    font-size: 1.5rem;
+    color: #5e4ee5;
+    margin-bottom: 1rem;
+}
+
+.comment {
+    background: #f9f9ff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.comment p {
+    margin: 0.2rem 0;
+}
+
+.comment strong {
+    color: #5e4ee5;
+}
+
+.comment-timestamp {
+    font-size: 0.8rem;
+    color: #636e72;
+}
+
+/* Add Comment Section */
+.add-comment {
+    margin-top: 2rem;
+}
+
+.add-comment h3 {
+    font-size: 1.5rem;
+    color: #5e4ee5;
+    margin-bottom: 1rem;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+    margin-bottom: 1rem;
+}
+
+.comment-form .btn-submit {
+    padding: 0.8rem 1.5rem;
+    background-color: #5e4ee5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.comment-form .btn-submit:hover {
+    background-color: #483db8;
+}
+
+/* Footer */
+.forum-footer {
+    text-align: center;
+    padding: 1rem;
+    background: #5e4ee5;
+    color: white;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .forum-container {
+        width: 95%;
+    }
+
+    .topic-title {
+        font-size: 1.8rem;
+    }
+
+    .topic-meta {
+        font-size: 0.8rem;
+    }
+
+    .comment-form textarea {
+        font-size: 0.9rem;
+    }
+
+    .btn-favorite,
+    .btn-submit {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,279 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo a {
+    color: #1d976c;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+    color: #93f9b9;
+}
+
+/* Responsive Navbar */
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    gap: 10px;
+    z-index: 1000;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    background: linear-gradient(90deg, #1d976c, #93f9b9);
+    color: #fff;
+    padding: 60px 20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 20px 20px;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.hero .write-for-us-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+}
+
+.hero .write-for-us-btn:hover {
+    background-color: #1d976c;
+    transform: scale(1.1);
+}
+
+/* Toolkit Container */
+.toolkit-container {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Section Headers */
+.toolkit-section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    border-bottom: 3px solid #93f9b9;
+    display: inline-block;
+}
+
+/* Lesson Cards */
+.lesson-cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+
+.lesson-card {
+    flex: 1 1 calc(30% - 20px);
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lesson-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.lesson-card h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.lesson-card p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.lesson-card .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #1d976c;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.lesson-card .btn:hover {
+    background: #93f9b9;
+    transform: scale(1.05);
+}
+
+/* Blog Section */
+.blog-articles {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.blog-post {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.blog-post:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+}
+
+.blog-post h3 {
+    font-size: 1.6rem;
+    color: #1d976c;
+    margin-bottom: 10px;
+}
+
+.blog-post p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.blog-post .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #2c3e50;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.blog-post .btn:hover {
+    background: #1d976c;
+}
+
+/* Footer */
+.footer {
+    background: #93f9b9;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+    }
+
+    .lesson-card {
+        flex: 1 1 100%;
+    }
+
+    .blog-articles {
+        gap: 10px;
+    }
+}

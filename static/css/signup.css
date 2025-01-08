@@ -1,0 +1,256 @@
+/* General Reset */
+body, h1, h2, p, ul, li, a, nav, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9ff;
+    color: #2c3e50;
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .logo a {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #4e54c8;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li a {
+    font-size: 1rem;
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.nav-links li a:hover {
+    color: #4e54c8;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #2c3e50;
+    border-radius: 2px;
+}
+
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: white;
+    padding: 1rem;
+    gap: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 999;
+}
+
+/* Sign Up Hero Section */
+.signup-hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(to bottom right, #4e54c8, #8f94fb);
+    color: white;
+}
+
+.signup-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.signup-hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Sign Up Form Section */
+.signup-section {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.signup-container {
+    max-width: 500px;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.signup-container h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #4e54c8;
+}
+
+.flash-messages {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+}
+
+.flash-messages li {
+    background-color: #ffcccc;
+    color: #cc0000;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+/* Form Styles */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.signup-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.signup-form label {
+    font-size: 1rem;
+    color: #2c3e50;
+}
+
+.signup-form input {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease;
+}
+
+.signup-form input:focus {
+    border-color: #4e54c8;
+    outline: none;
+}
+
+.signup-form .btn-primary {
+    padding: 1rem;
+    background-color: #4e54c8;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signup-form .btn-primary:hover {
+    background-color: #3b44a6;
+}
+
+.signup-footer-text {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.signup-footer-text a {
+    color: #4e54c8;
+    text-decoration: none;
+}
+
+.signup-footer-text a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    background-color: #2c3e50;
+    color: white;
+    padding: 2rem 1rem;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.footer-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-links li a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .signup-hero h1 {
+        font-size: 2rem;
+    }
+
+    .signup-hero p {
+        font-size: 1rem;
+    }
+
+    .signup-container {
+        padding: 1.5rem;
+    }
+
+    .signup-form input {
+        font-size: 0.9rem;
+    }
+
+    .signup-form .btn-primary {
+        font-size: 0.9rem;
+    }
+}

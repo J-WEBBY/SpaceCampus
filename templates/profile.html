@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | Space Campus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+    <script src="{{ url_for('static', filename='js/profile.js') }}" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/">Space Campus</a>
+        </div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/favorites">Favorites</a></li>
+            <li><a href="/profile" class="active">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Profile Header -->
+    <header class="profile-header">
+        <h1>Welcome, {{ user.username }}</h1>
+        <p>Manage your account and track your activity at Space Campus.</p>
+    </header>
+
+    <!-- Profile Container -->
+    <main class="profile-container">
+        <!-- Personal Information Section -->
+        <section class="profile-section">
+            <h2>Personal Information</h2>
+            <form action="{{ url_for('profile_update') }}" method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" value="{{ user.username }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="{{ user.email }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Change Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter new password">
+                </div>
+                <button type="submit" class="btn-primary">Update Profile</button>
+            </form>
+        </section>
+
+        <!-- Profile Picture Section -->
+        <section class="profile-section">
+            <h2>Profile Picture</h2>
+            <form action="{{ url_for('upload_profile_image') }}" method="POST" enctype="multipart/form-data">
+                <div class="profile-image-container">
+                    {% if user.profile_image %}
+                    <img src="{{ url_for('static', filename='uploads/profile_images/' + user.profile_image) }}" alt="Profile Picture" class="profile-image">
+                    {% else %}
+                    <img src="{{ url_for('static', filename='images/default-profile.png') }}" alt="Default Profile Picture" class="profile-image">
+                    {% endif %}
+                </div>
+                <input type="file" id="profile-image" name="profile_image" accept="image/*">
+                <button type="submit" class="btn-primary">Upload Image</button>
+            </form>
+        </section>
+
+        <!-- Activity Section -->
+        <section class="profile-section">
+            <h2>Your Activity</h2>
+            <ul class="activity-list">
+                <li><strong>Forum Comments:</strong> {{ activity_stats.forum_comments }}</li>
+                <li><strong>Topics Saved:</strong> {{ activity_stats.forum_favorites }}</li>
+                <li><strong>Mood Tracker Entries:</strong> {{ activity_stats.mood_entries }}</li>
+                <li><strong>Planner Entries:</strong> {{ activity_stats.planner_entries }}</li>
+            </ul>
+        </section>
+
+        <!-- Account Actions Section -->
+        <section class="profile-section account-actions">
+            <h2>Account Actions</h2>
+            <form action="{{ url_for('delete_account') }}" method="POST">
+                <button type="submit" class="btn-danger">Delete Account</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Space Campus. All rights reserved.</p>
+    </footer>
+</body>
+</html>

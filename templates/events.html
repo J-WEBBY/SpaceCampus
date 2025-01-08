@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | Space Campus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/events.css') }}">
+    <script src="{{ url_for('static', filename='js/events.js') }}" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo"><a href="/dashboard">Space Campus</a></div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/forum">Forum</a></li>
+            <li><a href="/events" class="active">Events</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Explore Events Happening Near You!</h1>
+        <p>Stay informed about exciting events in Birmingham, London, Manchester, and Liverpool. This feature is exclusive to students in the United Kingdom.</p>
+    </header>
+
+    <!-- Events Section -->
+    <main class="events-container">
+        <h2>Find Events by City</h2>
+
+        <!-- Birmingham -->
+        <section class="city-section">
+            <h3>Birmingham</h3>
+            <div class="event-cards">
+                <div class="event-card">
+                    <h4>Tech Meetup</h4>
+                    <p>Date: 10th January 2025 | Time: 6 PM</p>
+                    <p>Join the tech community for networking and innovation discussions.</p>
+                    <a href="#" class="more-info-btn">More Info</a>
+                </div>
+                <div class="event-card">
+                    <h4>Career Fair</h4>
+                    <p>Date: 15th January 2025 | Time: 10 AM</p>
+                    <p>Explore job opportunities and meet recruiters from top companies.</p>
+                    <a href="#" class="more-info-btn">More Info</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- London -->
+        <section class="city-section">
+            <h3>London</h3>
+            <div class="event-cards">
+                <div class="event-card">
+                    <h4>Hackathon 2025</h4>
+                    <p>Date: 20th January 2025 | Time: 9 AM</p>
+                    <p>Show off your coding skills and compete with the best!</p>
+                    <a href="#" class="more-info-btn">More Info</a>
+                </div>
+                <div class="event-card">
+                    <h4>Student Social</h4>
+                    <p>Date: 25th January 2025 | Time: 7 PM</p>
+                    <p>Meet new people and have a fun night of socializing and games.</p>
+                    <a href="#" class="more-info-btn">More Info</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Manchester -->
+        <section class="city-section">
+            <h3>Manchester</h3>
+            <div class="event-cards">
+                <div class="event-card">
+                    <h4>AI Workshop</h4>
+                    <p>Date: 18th January 2025 | Time: 2 PM</p>
+                    <p>Learn the basics of artificial intelligence and its applications.</p>
+                    <a href="#" class="more-info-btn">More Info</a>
+                </div>
+                <div class="event-card">
+                    <h4>University Open Day</h4>
+                    <p>Date: 22nd January 2025 | Time: 11 AM</p>
+                    <p>Discover university programs and meet academic advisors.</p>
+                    <a href="#" class="more-info-btn">More Info</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Liverpool -->
+        <section class="city-section">
+            <h3>Liverpool</h3>
+            <div class="event-cards">
+                <div class="event-card">
+                    <h4>Innovation Summit</h4>
+                    <p>Date: 27th January 2025 | Time: 9 AM</p>
+                    <p>Explore groundbreaking innovations and meet industry experts.</p>
+                    <a href="#" class="more-info-btn">More Info</a>
+                </div>
+                <div class="event-card">
+                    <h4>Student Leadership Conference</h4>
+                    <p>Date: 30th January 2025 | Time: 10 AM</p>
+                    <p>Develop leadership skills and network with fellow students.</p>
+                    <a href="#" class="more-info-btn">More Info</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Space Campus. All rights reserved.</p>
+    </footer>
+</body>
+</html>

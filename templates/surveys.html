@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surveys | Space Campus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/surveys.css') }}">
+    <script src="{{ url_for('static', filename='js/surveys.js') }}" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{{ url_for('dashboard') }}">Space Campus</a>
+        </div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+            <li><a href="{{ url_for('logout') }}" class="btn-logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Have Your Say, Empower Your Voice!</h1>
+        <p>Explore surveys on student life, mental health, networking, and more. Share your thoughts to help educators and institutions better support students like you.</p>
+        <a href="#survey-section" class="cta-button">Start Exploring Surveys</a>
+    </header>
+
+    <!-- Surveys Section -->
+    <main class="survey-container" id="survey-section">
+        <h2>Explore Our Surveys</h2>
+        <p class="intro-text">Your feedback matters. Participate in quick surveys and make your voice heard!</p>
+
+        <!-- Survey Categories -->
+        <section class="survey-categories">
+            <!-- Student Life Surveys -->
+            <div class="survey-category">
+                <h3>Student Life Surveys</h3>
+                <div class="survey-cards">
+                    <div class="survey-card">
+                        <h4>Campus Life</h4>
+                        <p>Tell us about your experience on campus.</p>
+                        <span class="duration">~5 mins</span>
+                        <a href="#" class="survey-btn">Take Survey</a>
+                    </div>
+                    <div class="survey-card">
+                        <h4>Time Management</h4>
+                        <p>How do you balance academics and personal life?</p>
+                        <span class="duration">~7 mins</span>
+                        <a href="#" class="survey-btn">Take Survey</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mental Health Surveys -->
+            <div class="survey-category">
+                <h3>Mental Health Surveys</h3>
+                <div class="survey-cards">
+                    <div class="survey-card">
+                        <h4>Dealing with Anxiety</h4>
+                        <p>Share your thoughts on managing anxiety as a student.</p>
+                        <span class="duration">~6 mins</span>
+                        <a href="#" class="survey-btn">Take Survey</a>
+                    </div>
+                    <div class="survey-card">
+                        <h4>Academic Stress</h4>
+                        <p>Help us understand the stress points in your studies.</p>
+                        <span class="duration">~8 mins</span>
+                        <a href="#" class="survey-btn">Take Survey</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Educator Surveys -->
+            <div class="survey-category">
+                <h3>Educator Surveys</h3>
+                <div class="survey-cards">
+                    <div class="survey-card">
+                        <h4>Teaching Styles</h4>
+                        <p>What teaching styles work best for you?</p>
+                        <span class="duration">~5 mins</span>
+                        <a href="#" class="survey-btn">Take Survey</a>
+                    </div>
+                    <div class="survey-card">
+                        <h4>Technology in Classrooms</h4>
+                        <p>Share your feedback on using tech in education.</p>
+                        <span class="duration">~6 mins</span>
+                        <a href="#" class="survey-btn">Take Survey</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call-to-Action -->
+        <div class="cta">
+            <p>Your voice can make a difference! Participate and help shape the future of education.</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Space Campus. All rights reserved.</p>
+    </footer>
+</body>
+</html>

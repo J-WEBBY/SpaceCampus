@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Planner | Space Campus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/planner.css') }}">
+    <script src="{{ url_for('static', filename='js/planner.js') }}" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{{ url_for('dashboard') }}">Space Campus</a>
+        </div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+            <li><a href="{{ url_for('logout') }}" class="btn-logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Planner Container -->
+    <div class="planner-container">
+        <h1>Task Planner</h1>
+        <p>Organize, track, and manage your tasks efficiently.</p>
+
+        <!-- Input Section -->
+        <section class="planner-input">
+            <input type="text" id="task-input" placeholder="Enter task description" required>
+            <input type="date" id="task-date" required>
+            <input type="time" id="task-time" required>
+            <select id="task-type" required>
+                <option value="" disabled selected>Select Task Type</option>
+                <option value="Study Plan">Study Plan</option>
+                <option value="Assignment Planner">Assignment Planner</option>
+                <option value="To-do List">To-do List</option>
+            </select>
+            <button id="add-task-button">Add Task</button>
+        </section>
+
+        <!-- Filter Section -->
+        <section class="filter-options">
+            <label for="filter-select">Filter Tasks:</label>
+            <select id="filter-select">
+                <option value="all">Show All Tasks</option>
+                <option value="overdue">Overdue Tasks</option>
+                <option value="completed">Completed Tasks</option>
+                <option value="remaining">Remaining Tasks</option>
+                <option value="study-plan">Study Plans</option>
+                <option value="assignment-planner">Assignment Planners</option>
+                <option value="to-do-list">To-do Lists</option>
+            </select>
+        </section>
+
+        <!-- Task List Section -->
+        <ul id="task-list" class="task-list">
+            <!-- Tasks will be dynamically added here -->
+        </ul>
+
+        <!-- Stats Section -->
+        <div class="task-stats">
+            <span id="progress-percentage">0% Completed</span>
+            <span id="tasks-remaining">0 Remaining</span>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Space Campus. All rights reserved.</p>
+    </footer>
+</body>
+</html>

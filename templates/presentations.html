@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentations | Space Campus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/presentations.css') }}">
+    <script src="{{ url_for('static', filename='js/presentations.js') }}" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo"><a href="/dashboard">Space Campus</a></div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/educator-resources">Resources</a></li>
+            <li><a href="/presentations" class="active">Presentations</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Presentations & Student Engagement</h1>
+        <p>Interactive tools and resources for making your classes come alive!</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="presentations-container">
+        <!-- Coming Soon Section -->
+        <section class="coming-soon">
+            <h2>Coming Soon!</h2>
+            <p>
+                Our team is curating the best slides, videos, and tools to help you engage your students 
+                in creative and impactful ways. Get ready to elevate your teaching experience!
+            </p>
+            <p>
+                Stay updated by contacting us at <a href="mailto:support@spacecampus.com">support@spacecampus.com</a>.
+            </p>
+        </section>
+
+        <!-- Placeholder Section -->
+        <section class="dynamic-display">
+            <h2>What’s Coming</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Dynamic Slides</h3>
+                    <p>Access ready-made slides for your lessons.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Engagement Videos</h3>
+                    <p>Engage your students with curated videos for learning.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Interactive Templates</h3>
+                    <p>Download interactive templates for personalized lessons.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Space Campus. All rights reserved.</p>
+    </footer>
+</body>
+</html>

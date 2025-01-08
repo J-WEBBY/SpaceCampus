@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Space Campus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+    <script src="{{ url_for('static', filename='js/about.js') }}" defer></script>
+</head>
+<body>
+     <!-- Navbar -->
+     <nav class="navbar">
+        <div class="logo">
+            <a href="{{ url_for('landing') }}">Space Campus</a>
+        </div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('landing') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+            <li><a href="{{ url_for('support') }}">Support</a></li>
+        </ul>
+    </nav>
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>About Space Campus</h1>
+        <p>Your gateway to better education, innovation, and collaboration.</p>
+    </header>
+
+    <!-- About Content -->
+    <main class="about-container">
+        <!-- Mission and Vision Section -->
+        <section class="mission-section">
+            <h2>Our Mission</h2>
+            <p>At Space Campus, we aim to empower students and educators by providing tools and resources that promote learning, collaboration, and professional growth. We envision a world where education adapts to the needs of its learners, fostering creativity, innovation, and inclusivity.</p>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <h2>What We Offer</h2>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <h3>For Students</h3>
+                    <p>Access tools to manage tasks, connect with peers, and track your mental well-being for a balanced academic journey.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>For Educators</h3>
+                    <p>Discover lesson plans, webinars, and resources to enhance your teaching and engage with your students effectively.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Community</h3>
+                    <p>Join forums and collaborative spaces where ideas flow freely between students and educators.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits-section">
+            <h2>Why Choose Space Campus?</h2>
+            <ul>
+                <li>Comprehensive tools for task management and progress tracking.</li>
+                <li>Support for mental health and well-being through surveys and planners.</li>
+                <li>Opportunities for professional growth and certification for educators.</li>
+                <li>A strong community that fosters networking and collaboration.</li>
+            </ul>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <h2>What Our Users Say</h2>
+            <blockquote>
+                <p>"Space Campus transformed the way I approach my studies. The planner and mental health tools are lifesavers!"</p>
+                <cite>- A Student</cite>
+            </blockquote>
+            <blockquote>
+                <p>"The resources for educators are top-notch. I’ve never felt so equipped to engage my students." </p>
+                <cite>- An Educator</cite>
+            </blockquote>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Space Campus. All rights reserved.</p>
+    </footer>
+</body>
+</html>

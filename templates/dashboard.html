@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Space Campus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{{ url_for('dashboard') }}">Space Campus</a>
+        </div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('blog') }}">Blogs</a></li>
+            <li><a href="{{ url_for('forum') }}">Forums</a></li>
+            <li><a href="{{ url_for('events') }}">Events</a></li>
+            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+            <li><a href="{{ url_for('logout') }}" class="btn-logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <main>
+        <div class="dashboard-container">
+            <h1 class="dashboard-title">Welcome, {{ current_user.username }}</h1>
+            <p>Access your personalized content and resources below:</p>
+            <div class="dashboard-grid">
+                <a href="{{ url_for('surveys') }}" class="dashboard-card">
+                    <h2>Surveys</h2>
+                    <p>Participate in and manage surveys.</p>
+                </a>
+                <a href="{{ url_for('planner') }}" class="dashboard-card">
+                    <h2>Planner</h2>
+                    <p>Plan and organize your tasks effectively.</p>
+                </a>
+                <a href="{{ url_for('moodtracker') }}" class="dashboard-card">
+                    <h2>Mood Tracker</h2>
+                    <p>Keep track of your mood and activities.</p>
+                </a>
+                <a href="{{ url_for('educator_resources') }}" class="dashboard-card">
+                    <h2>Educator Resources</h2>
+                    <p>Explore resources curated for educators.</p>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Space Campus. All rights reserved.</p>
+        <ul class="footer-links">
+            <li><a href="{{ url_for('terms') }}">Terms of Service</a></li>
+            <li><a href="{{ url_for('privacy') }}">Privacy Policy</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

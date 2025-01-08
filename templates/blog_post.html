@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }} | Space Campus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/blog_post.css') }}">
+    <script src="{{ url_for('static', filename='js/blog_post.js') }}" defer></script>
+</head>
+<body>
+    
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(category_filter=["comment_success", "comment_error"]) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for message in messages %}
+                    <div class="alert alert-{{ 'success' if 'success' in message else 'danger' }}">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{{ url_for('dashboard') }}">Space Campus</a>
+        </div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('forum') }}">Forum</a></li>
+            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+            <li><a href="{{ url_for('logout') }}" class="btn-logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Blog Post Content -->
+    <main class="blog-post-container">
+        <h1 class="blog-post-title">{{ post.title }}</h1>
+        <div class="blog-post-meta">
+            <p>By <strong>{{ post.author }}</strong></p>
+            <p>Published on {{ post.date.strftime('%B %d, %Y') }}</p>
+        </div>
+        <img src="{{ url_for('static', filename=post.image) }}" class="blog-post-image" alt="{{ post.title }}">
+        <p class="blog-post-content">{{ post.content | safe }}</p>
+        <a href="{{ url_for('blog') }}" class="btn-secondary">Back to Blog</a>
+    </main>
+
+    <!-- Comments Section -->
+    <section class="blog-comments">
+        <h2>Comments</h2>
+        <form action="{{ url_for('blog_post', post_id=post.id) }}" method="post">
+            <textarea name="comment" placeholder="Write your comment..." required></textarea>
+            <button type="submit" class="btn-primary">Post Comment</button>
+        </form>
+
+        {% if comments %}
+            {% for comment in comments %}
+                <div class="comment">
+                    <p><strong>{{ comment.author }}</strong>: {{ comment.content }}</p>
+                    <p class="comment-date">{{ comment.date.strftime('%B %d, %Y') }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No comments yet. Be the first to comment!</p>
+        {% endif %}
+
+        <!-- Pagination Controls -->
+        <div class="pagination">
+            {% if pagination.has_prev %}
+                <a href="{{ url_for('blog_post', post_id=post.id, page=pagination.prev_num) }}" class="btn-secondary">Previous</a>
+            {% endif %}
+            {% for page in pagination.iter_pages(left_edge=2, right_edge=2, left_current=1, right_current=1) %}
+                {% if page %}
+                    {% if page == pagination.page %}
+                        <span class="current">{{ page }}</span>
+                    {% else %}
+                        <a href="{{ url_for('blog_post', post_id=post.id, page=page) }}">{{ page }}</a>
+                    {% endif %}
+                {% else %}
+                    <span class="ellipsis">...</span>
+                {% endif %}
+            {% endfor %}
+            {% if pagination.has_next %}
+                <a href="{{ url_for('blog_post', post_id=post.id, page=pagination.next_num) }}" class="btn-secondary">Next</a>
+            {% endif %}
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Space Campus. All rights reserved.</p>
+        <ul class="footer-links">
+            <li><a href="{{ url_for('terms') }}">Terms of Service</a></li>
+            <li><a href="{{ url_for('privacy') }}">Privacy Policy</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

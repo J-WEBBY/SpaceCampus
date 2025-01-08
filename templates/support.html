@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Space Campus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/support.css') }}">
+    <script src="{{ url_for('static', filename='js/support.js') }}" defer></script>
+</head>
+<body>
+      <!-- Navbar -->
+      <nav class="navbar">
+        <div class="logo">
+            <a href="{{ url_for('landing') }}">Space Campus</a>
+        </div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('landing') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('faq') }}">FAQ</a></li>
+            <li><a href="{{ url_for('support') }}">Support</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Contact Us</h1>
+        <p>Have questions or need help? We're here to support you!</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="support-container">
+        <!-- Feedback Form -->
+        <section class="form-section">
+            <h2>Send Us a Message</h2>
+            <form action="/submit-feedback" method="POST" class="contact-form">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your name">
+                
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required placeholder="Enter your email">
+                
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required placeholder="Enter the subject">
+                
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required placeholder="Enter your message"></textarea>
+                
+                <button type="submit" class="btn-submit">Submit</button>
+            </form>
+        </section>
+
+        <!-- Support Info Section -->
+        <section class="info-section">
+            <h2>Support Information</h2>
+            <p>We aim to respond to all inquiries within 48 hours. For urgent matters, you can reach us through:</p>
+            <ul>
+                <li>Email: <a href="mailto:support@spacecampus.com">support@spacecampus.com</a></li>
+                <li>Phone: +44 123 456 7890</li>
+                <li>Office Hours: Monday to Friday, 9 AM - 5 PM</li>
+            </ul>
+        </section>
+
+        <!-- Links to Other Resources -->
+        <section class="resources-section">
+            <h2>Additional Resources</h2>
+            <p>Need more help? Explore our resources:</p>
+            <ul>
+                <li><a href="/faq">Frequently Asked Questions</a></li>
+                <li><a href="/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/terms-and-conditions">Terms and Conditions</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Space Campus. All rights reserved.</p>
+    </footer>
+</body>
+</html>

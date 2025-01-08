@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certification | Space Campus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/certification.css') }}">
+    <script src="{{ url_for('static', filename='js/certification.js') }}" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo"><a href="/dashboard">Space Campus</a></div>
+        <div class="logo"><a href="/dashboard">Space Campus</a></div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/educator-resources">Resources</a></li>
+            <li><a href="/certification" class="active">Certification</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Certification</h1>
+        <p>Empower your teaching career with top industry certifications.</p>
+    </header>
+
+    <!-- Coming Soon Section -->
+    <section class="coming-soon">
+        <h2>Coming Soon</h2>
+        <p>
+            Discover a curated list of certifications tailored to educators:
+        </p>
+        <ul class="features-list">
+            <li>Explore certifications in various teaching fields.</li>
+            <li>Gain access to exclusive discounts and resources.</li>
+            <li>Track your certification journey and progression rates.</li>
+            <li>Learn about certification benefits and career advancements.</li>
+        </ul>
+        <p>
+            Stay tuned for updates! We're building a comprehensive platform to help you achieve your career goals.
+        </p>
+    </section>
+
+    <!-- Subscribe Section -->
+    <section class="subscribe">
+        <h2>Be the First to Know</h2>
+        <p>Subscribe to our updates and receive the latest news about certifications and educator resources.</p>
+        <form class="subscribe-form">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit" class="btn-submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Space Campus. All rights reserved.</p>
+    </footer>
+</body>
+</html>

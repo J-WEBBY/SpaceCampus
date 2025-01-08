@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Tracker | Space Campus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/moodtracker.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/moodtracker.js') }}" defer></script>
+    <style>
+        /* Background colors for mood selection */
+        .happy-bg { background-color: #ffeb99; }
+        .neutral-bg { background-color: #cccccc; }
+        .sad-bg { background-color: #b3c6ff; }
+        .stressed-bg { background-color: #ff9999; }
+        .excited-bg { background-color: #ffccff; }
+
+        /* Mood history styling */
+        .mood-entry {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .mood-entry p {
+            margin: 5px 0;
+        }
+
+        .mood-entry strong {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{{ url_for('dashboard') }}">Space Campus</a>
+        </div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            <li><a href="{{ url_for('profile') }}">Profile</a></li>
+            <li><a href="{{ url_for('logout') }}" class="btn-logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Section -->
+    <main class="mood-tracker-container">
+        <h1 class="tracker-title">Mood Tracker</h1>
+        <p class="tracker-subtitle">Track your daily mood and reflect on your journey.</p>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(category_filter=["mood_success", "mood_error"]) %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ 'success' if 'success' in message else 'danger' }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Mood Selection -->
+        <section class="emoji-tracker">
+            <h2>Select Your Mood</h2>
+            <form action="/moodtracker" method="post">
+                <div class="emoji-options">
+                    <button type="button" class="emoji-btn" onclick="selectMood('Happy', 'happy-bg')">😊</button>
+                    <button type="button" class="emoji-btn" onclick="selectMood('Neutral', 'neutral-bg')">😐</button>
+                    <button type="button" class="emoji-btn" onclick="selectMood('Sad', 'sad-bg')">😢</button>
+                    <button type="button" class="emoji-btn" onclick="selectMood('Stressed', 'stressed-bg')">😡</button>
+                    <button type="button" class="emoji-btn" onclick="selectMood('Excited', 'excited-bg')">🤩</button>
+                </div>
+                <input type="hidden" id="mood-input" name="mood" required>
+                <textarea name="journal" placeholder="Write about your day... (required)"></textarea>
+                <button type="submit" class="btn-primary">Save</button>
+            </form>
+        </section>
+
+        <!-- Quote of the Day -->
+        <section class="quote-of-the-day">
+            <h2>Quote of the Day</h2>
+            <p>"Success is not final, failure is not fatal: It is the courage to continue that counts." - Winston Churchill</p>
+        </section>
+
+        <!-- Mood Chart -->
+        <section class="mood-chart">
+            <h2>Your Mood Trends</h2>
+            <canvas id="moodChart"></canvas>
+        </section>
+
+        <!-- Mood History -->
+        <section class="mood-history">
+            <h2>Your Mood History</h2>
+            {% if mood_entries %}
+                {% for entry in mood_entries %}
+                    <div class="mood-entry">
+                        <p><strong>Date:</strong> {{ entry.date.strftime('%B %d, %Y') }}</p>
+                        <p><strong>Mood:</strong> {{ entry.mood }}</p>
+                        <p><strong>Journal:</strong> {{ entry.journal or "No journal entry for this day." }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No mood entries yet. Start tracking your mood today!</p>
+            {% endif %}
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Space Campus. All rights reserved.</p>
+        <ul>
+            <li><a href="{{ url_for('terms') }}">Terms of Service</a></li>
+            <li><a href="{{ url_for('privacy') }}">Privacy Policy</a></li>
+        </ul>
+    </footer>
+
+    <script>
+        function selectMood(mood, bgClass) {
+            // Update the mood input
+            document.getElementById('mood-input').value = mood;
+
+            // Remove previous background classes
+            document.body.className = '';
+            // Add the new background class
+            document.body.classList.add(bgClass);
+        }
+
+        // Chart.js Script
+        const ctx = document.getElementById('moodChart').getContext('2d');
+        const moodChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {{ mood_dates | tojson | safe }},
+                datasets: [{
+                    label: 'Mood Over Time',
+                    data: {{ mood_scores | tojson | safe }},
+                    borderColor: '#5e4ee5',
+                    backgroundColor: 'rgba(94, 78, 229, 0.2)',
+                    borderWidth: 2,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

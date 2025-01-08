@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing | Space Campus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+
+    <script src="{{ url_for('static', filename='js/landing.js') }}" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/">Space Campus</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/about">About us</a></li>
+            <li><a href="/support">Support</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/login" class="btn-login">Login</a></li>
+        </ul>
+        <!-- Hamburger Menu -->
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Space Campus</h1>
+            <p>Your gateway to the future of learning. Join our community of innovators, students, and educators!</p>
+            <a href="/signup" class="btn-primary">Join Our Space</a>
+        </div>
+        <div class="hero-image">
+            <img src="{{ url_for('static', filename='images/hero-image.png') }}" alt="Hero Image">
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="highlights">
+        <div class="highlight-card">
+            <img src="{{ url_for('static', filename='images/community.png') }}" alt="Community">
+            <h3>Global Community</h3>
+            <p>Connect with students and educators across the globe.</p>
+        </div>
+        <div class="highlight-card">
+            <img src="{{ url_for('static', filename='images/resources.png') }}" alt="Resources">
+            <h3>Exclusive Resources</h3>
+            <p>Access curated resources to excel in your learning journey.</p>
+        </div>
+        <div class="highlight-card">
+            <img src="{{ url_for('static', filename='images/webinars.png') }}" alt="Webinars">
+            <h3>Expert Webinars</h3>
+            <p>Learn from industry leaders and innovators in education.</p>
+        </div>
+    </section>
+
+    <!-- Call-to-Action Section -->
+    <section class="cta-section">
+        <h2>Ready to Take the Next Step?</h2>
+        <p>Join Space Campus and become a part of the revolution in education!</p>
+        <a href="/signup" class="btn-primary">Get Started</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Space Campus. All rights reserved.</p>
+        <ul class="footer-links">
+            <li><a href="/terms">Terms of Service</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

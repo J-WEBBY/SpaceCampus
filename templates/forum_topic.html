@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ topic.title }} | Space Campus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forum_topic.css') }}">
+    <script src="{{ url_for('static', filename='js/forum_topic.js') }}" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/">Space Campus</a>
+        </div>
+        <!-- Hamburger Menu -->
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/forum" class="active">Forum</a></li>
+            <li><a href="/favorites">Favorites</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Forum Topic Container -->
+    <main class="forum-container">
+        <!-- Topic Details -->
+        <section class="forum-topic">
+            <h1 class="topic-title">{{ topic.title }}</h1>
+            <p class="topic-meta">By <strong>{{ topic.author_user.username }}</strong> | Category: <span class="role">{{ topic.category }}</span> | Posted on: {{ topic.created_at.strftime('%Y-%m-%d') }}</p>
+            <p class="topic-content">{{ topic.content }}</p>
+            {% if topic.image %}
+            <img src="{{ url_for('static', filename=topic.image) }}" alt="Topic Image" class="topic-image">
+            {% endif %}
+            {% if topic.video %}
+            <video src="{{ url_for('static', filename=topic.video) }}" controls class="topic-video"></video>
+            {% endif %}
+            <!-- Add to Favorites -->
+            <form action="{{ url_for('add_to_favorites', topic_id=topic.id) }}" method="POST" class="action-form">
+                <button type="submit" class="btn btn-favorite">Add to Favorites</button>
+            </form>
+        </section>
+
+        <!-- Comments Section -->
+        <section class="comments-section">
+            <h2>Comments</h2>
+            {% if comments %}
+            {% for comment in comments %}
+            <div class="comment">
+                <p><strong>{{ comment.author.username }}</strong>: {{ comment.content }}</p>
+                <p class="comment-timestamp">{{ comment.created_at.strftime('%Y-%m-%d %H:%M') }}</p>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p class="no-comments">No comments yet. Be the first to comment!</p>
+            {% endif %}
+        </section>
+
+        <!-- Add Comment Section -->
+        <section class="add-comment">
+            <h3>Add a Comment</h3>
+            <form method="POST" class="comment-form">
+                <textarea name="content" rows="4" placeholder="Write your comment here..." required></textarea>
+                <button type="submit" class="btn btn-submit">Post Comment</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="forum-footer">
+        <p>&copy; 2025 Space Campus. All rights reserved.</p>
+    </footer>
+</body>
+</html>

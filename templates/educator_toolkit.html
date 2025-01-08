@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educator Toolkit | Space Campus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/educator_toolkit.css') }}">
+    <script src="{{ url_for('static', filename='js/educator_toolkit.js') }}" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo"><a href="/dashboard">Space Campus</a></div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/educator-resources">Resources</a></li>
+            <li><a href="/educator-toolkit" class="active">Toolkit</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Educator Toolkit</h1>
+        <p>Lesson plans and tips to help you become the best educator possible.</p>
+        <a href="/about" class="write-for-us-btn">Write for Us</a>
+    </header>
+
+    <!-- Main Content -->
+    <main class="toolkit-container">
+        <!-- Featured Lesson Plans -->
+        <section class="toolkit-section">
+            <h2>Featured Lesson Plans</h2>
+            <div class="lesson-cards">
+                <div class="lesson-card">
+                    <h3>Math Mastery</h3>
+                    <p>Comprehensive lesson plans to build foundational skills in mathematics.</p>
+                    <a href="#" class="btn">View Plan</a>
+                </div>
+                <div class="lesson-card">
+                    <h3>Creative Writing</h3>
+                    <p>Help your students unlock their imagination with structured writing guides.</p>
+                    <a href="#" class="btn">View Plan</a>
+                </div>
+                <div class="lesson-card">
+                    <h3>STEM Exploration</h3>
+                    <p>Innovative approaches to teaching Science, Technology, Engineering, and Math.</p>
+                    <a href="#" class="btn">View Plan</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Educator Blog Section -->
+        <section class="toolkit-section">
+            <h2>Educator Blog</h2>
+            <div class="blog-articles">
+                <article class="blog-post">
+                    <h3>Engage Your Students</h3>
+                    <p>Interactive learning methods like group activities can significantly boost student interest.</p>
+                    <a href="#" class="btn">Read More</a>
+                </article>
+                <article class="blog-post">
+                    <h3>Personalize Your Approach</h3>
+                    <p>Identify the unique learning styles of your students and adjust your teaching techniques.</p>
+                    <a href="#" class="btn">Read More</a>
+                </article>
+                <article class="blog-post">
+                    <h3>Embrace Technology</h3>
+                    <p>Utilize online tools and resources to enhance your lesson delivery.</p>
+                    <a href="#" class="btn">Read More</a>
+                </article>
+            </div>
+        </section>
+
+        <!-- Admin Section -->
+        {% if current_user.is_authenticated and current_user.is_admin %}
+        <section class="admin-section">
+            <h2>Admin Actions</h2>
+            <a href="/add-lesson" class="btn-wide">Post a New Lesson Plan</a>
+        </section>
+        {% endif %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Space Campus. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educator Resources | Space Campus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/educator_resources.css') }}">
+    <script src="{{ url_for('static', filename='js/educator_resources.js') }}" defer></script>
+</head>
+<body>
+   <!-- Navbar -->
+   <nav class="navbar">
+    <div class="logo">
+        <a href="{{ url_for('dashboard') }}">Space Campus</a>
+    </div>
+    <div class="hamburger-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul class="nav-links">
+        <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+        <li><a href="{{ url_for('profile') }}">Profile</a></li>
+        <li><a href="{{ url_for('logout') }}" class="btn-logout">Logout</a></li>
+    </ul>
+</nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Educator Resources</h1>
+        <p>Your ultimate toolkit for teaching and learning success.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="resources-container">
+        <!-- Resource Library -->
+        <section class="resource-section">
+            <h2>Resource Library</h2>
+            <p>Explore a variety of tools to support your teaching journey.</p>
+            <div class="resource-cards">
+                <div class="resource-card">
+                    <h3>Lesson Plans & Tips</h3>
+                    <p>Access curated plans and tips to enhance your lessons.</p>
+                    <a href="/educator-toolkit" class="btn">Explore</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Worksheets</h3>
+                    <p>Ready-to-use materials for classroom engagement.</p>
+                    <a href="/worksheets" class="btn">View</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Presentations</h3>
+                    <p>Download slides and videos for engaging lessons.</p>
+                    <a href="/presentations" class="btn">Access</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Collaboration -->
+        <section class="resource-section">
+            <h2>Community Collaboration</h2>
+            <p>Meet students and educators, share ideas, and grow together.</p>
+            <a href="/forum" class="btn-wide">Join Discussions</a>
+        </section>
+
+        <!-- Professional Development -->
+        <section class="resource-section">
+            <h2>Professional Development</h2>
+            <p>Advance your career with webinars and certifications.</p>
+            <div class="resource-cards">
+                <div class="resource-card">
+                    <h3>Webinars</h3>
+                    <p>Learn from industry experts in real-time sessions.</p>
+                    <a href="/webinars" class="btn">Attend</a>
+                </div>
+                <div class="resource-card">
+                    <h3>Certifications</h3>
+                    <p>Discover the best certifications for educators.</p>
+                    <a href="/certification" class="btn">Explore</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Space Campus. All rights reserved.</p>
+    </footer>
+</body>
+</html>

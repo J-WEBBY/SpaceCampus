@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Favorites | Space Campus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/favorites.css') }}">
+    <script src="{{ url_for('static', filename='js/favorites.js') }}" defer></script>
+</head>
+<body>
+  
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo"><a href="/dashboard">Space Campus</a></div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/forum">Forum</a></li>
+            <li><a href="/favorites" class="active">FAQ</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <main class="favorites-container">
+        <h1>Your Favorite Topics</h1>
+        {% if topics %}
+            <ul class="favorites-list">
+                {% for topic in topics %}
+                    <li>
+                        <a href="{{ url_for('view_topic', topic_id=topic.id) }}">{{ topic.title }}</a>
+                        <p>By {{ topic.author_user.username }} | Category: {{ topic.category }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You have no favorite topics yet.</p>
+        {% endif %}
+    </main>
+
+    <footer class="forum-footer">
+        <p>&copy; 2025 Space Campus. All rights reserved.</p>
+    </footer>
+</body>
+</html>

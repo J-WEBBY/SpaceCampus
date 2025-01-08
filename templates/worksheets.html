@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worksheets | Space Campus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/worksheets.css') }}">
+    <script src="{{ url_for('static', filename='js/worksheet.js') }}" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo"><a href="/dashboard">Space Campus</a></div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/educator-resources">Resources</a></li>
+            <li><a href="/worksheets" class="active">Worksheets</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Worksheets & Surveys</h1>
+        <p>Empowering educators with dynamic tools for student engagement.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="worksheets-container">
+        <!-- Coming Soon Section -->
+        <section class="coming-soon">
+            <h2>Coming Soon!</h2>
+            <p>
+                We're working hard to bring you ready-to-download worksheets for your classroom needs. 
+                You'll also be able to access survey data to better understand your students. Stay tuned!
+            </p>
+            <p>
+                Want to stay updated? Contact us at <a href="mailto:support@spacecampus.com">support@spacecampus.com</a>.
+            </p>
+        </section>
+
+        <!-- Placeholder Section -->
+        <section class="dynamic-display">
+            <h2>What to Expect</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Downloadable Worksheets</h3>
+                    <p>Pre-made worksheets for different subjects, ready for your classroom.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Student Survey Reports</h3>
+                    <p>Access survey data to gain insights into student needs.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Interactive Templates</h3>
+                    <p>Editable and interactive worksheet templates to fit your teaching style.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Space Campus. All rights reserved.</p>
+    </footer>
+</body>
+</html>

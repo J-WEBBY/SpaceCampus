@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum | Space Campus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forum.css') }}">
+    <script src="{{ url_for('static', filename='js/forum.js') }}" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/forum">Space Campus</a>
+        </div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/favorites">Favorites</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Forum Header -->
+    <header class="forum-header">
+        <h1>Welcome to the Forum</h1>
+        <p>Connect with educators and students, share knowledge, and grow together.</p>
+        <button class="btn-create-topic" onclick="openTopicForm()">Create New Topic</button>
+    </header>
+
+    <!-- Forum Container -->
+    <main class="forum-container">
+        <section class="forum-topics">
+            {% if topics %}
+                {% for topic in topics %}
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <h2>{{ topic.title }}</h2>
+                            <p>By <strong>{{ topic.author_user.username }}</strong> | Category: <span class="role">{{ topic.category }}</span></p>
+                        </div>
+                        <div class="topic-content">
+                            <p>{{ topic.content[:100] }}{% if topic.content|length > 100 %}...{% endif %}</p>
+                            {% if topic.image %}
+                            <img src="{{ url_for('static', filename=topic.image) }}" alt="Topic Image" class="topic-image">
+                            {% endif %}
+                            {% if topic.video %}
+                            <video src="{{ url_for('static', filename=topic.video) }}" controls class="topic-video"></video>
+                            {% endif %}
+                        </div>
+                        <div class="topic-actions">
+                            <form action="/forum/like/{{ topic.id }}" method="POST" class="inline-form">
+                                <button type="submit" class="btn-like">Like (<span class="like-count">{{ topic.likes | length }}</span>)</button>
+                            </form>
+                            <a href="/forum/{{ topic.id }}" class="btn-view-details">View Details</a>
+                            <form action="/forum/favorite/{{ topic.id }}" method="POST" class="inline-form">
+                                <button type="submit" class="btn-favorite">Add to Favorites</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No topics yet. Be the first to create one!</p>
+            {% endif %}
+        </section>
+    </main>
+
+    <!-- Create Topic Modal -->
+    <div class="modal" id="topicFormModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeTopicForm()">&times;</span>
+            <h2>Create New Topic</h2>
+            <form action="/forum/create" method="POST" enctype="multipart/form-data">
+                <label for="title">Topic Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="category">I am a:</label>
+                <select id="category" name="category" required>
+                    <option value="Student">Student</option>
+                    <option value="Educator">Educator</option>
+                </select>
+
+                <label for="content">Content:</label>
+                <textarea id="content" name="content" rows="5" required></textarea>
+
+                <label for="image">Add Image:</label>
+                <input type="file" id="image" name="image" accept="image/*">
+
+                <label for="video">Add Video:</label>
+                <input type="file" id="video" name="video" accept="video/*">
+
+                <button type="submit" class="btn-submit">Post</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="forum-footer">
+        <p>&copy; 2025 Space Campus. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Modal -->
+    <script>
+        function openTopicForm() {
+            document.getElementById('topicFormModal').style.display = 'block';
+        }
+
+        function closeTopicForm() {
+            document.getElementById('topicFormModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

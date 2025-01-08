@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webinars | Space Campus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/webinars.css') }}">
+    <script src="{{ url_for('static', filename='js/webinars.js') }}" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo"><a href="/dashboard">Space Campus</a></div>
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/educator-resources">Resources</a></li>
+            <li><a href="/webinars" class="active">Webinars</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Webinars</h1>
+        <p>Learn from industry experts and enhance your teaching journey.</p>
+    </header>
+
+    <!-- Coming Soon Section -->
+    <section class="coming-soon">
+        <h2>Coming Soon</h2>
+        <p>
+            We're working hard to bring you an exceptional platform where educators can:
+        </p>
+        <ul class="features-list">
+            <li>Attend live webinars hosted by industry leaders.</li>
+            <li>Access recorded sessions for flexible learning.</li>
+            <li>Gain insights into the latest educational trends.</li>
+            <li>Collaborate and network with other educators.</li>
+        </ul>
+        <p>
+            Stay tuned for exciting updates and announcements about upcoming webinars. We can't wait to share this with you!
+        </p>
+    </section>
+
+    <!-- Subscribe Section -->
+    <section class="subscribe">
+        <h2>Stay Updated</h2>
+        <p>Subscribe to our newsletter to get the latest updates on webinars and educational resources.</p>
+        <form class="subscribe-form">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit" class="btn-submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Space Campus. All rights reserved.</p>
+    </footer>
+</body>
+</html>
